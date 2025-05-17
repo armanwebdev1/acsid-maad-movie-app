@@ -21,6 +21,7 @@ const Home = () => {
 
   const scrollLeft = () =>
     genresContainerRef.current?.scrollBy({ left: -200, behavior: "smooth" });
+
   const scrollRight = () =>
     genresContainerRef.current?.scrollBy({ left: 200, behavior: "smooth" });
 
