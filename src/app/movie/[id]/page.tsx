@@ -5,13 +5,11 @@ import MovieDetails from "../../components/movie/MovieDetails";
 import SimilarMovies from "../../components/movie/SimilarMovies";
 import { Metadata } from "next";
 
-type Props = {
-  params: {
-    id: string;
-  };
-};
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { id: string };
+}): Promise<Metadata> {
   const movie = await fetchMovieDetails(params.id);
   return {
     title: movie.title,
@@ -19,7 +17,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function MovieDetail({ params }: Props) {
+export default async function MovieDetail({
+  params,
+}: {
+  params: { id: string };
+}) {
   const movie = await fetchMovieDetails(params.id);
   const similar = await fetchSimilarMovies(params.id);
 
