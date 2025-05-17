@@ -12,10 +12,7 @@ const HeroSection = ({ movie }: { movie: Movie }) => {
           backgroundImage: `url(https://image.tmdb.org/t/p/original${movie.backdrop_path})`,
         }}
       >
-        {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/40 z-10 transition duration-300 group-hover:bg-black/50" />
-
-        {/* Text content */}
         <div className="absolute inset-0 z-20 flex flex-col justify-end px-8 pb-10">
           <h1 className="text-5xl font-extrabold text-white mb-3 group-hover:underline">
             {movie.title}
