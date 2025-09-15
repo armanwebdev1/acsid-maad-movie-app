@@ -16,11 +16,16 @@ const BackButton = () => (
           boxShadow: "0 0 15px rgba(229,9,20,0.6)",
         }}
         whileTap={{ scale: 0.95 }}
-        className="flex items-center gap-2 px-5 py-2 rounded-full font-semibold text-white 
-                   bg-black/40 backdrop-blur-md border border-white/10 
-                   transition-colors duration-300 hover:bg-netflix-red"
+        className="
+          flex items-center gap-1.5 sm:gap-2 
+          px-3 sm:px-5 py-1.5 sm:py-2 
+          rounded-full font-semibold text-white 
+          bg-black/40 backdrop-blur-md border border-white/10 
+          transition-colors duration-300 hover:bg-netflix-red
+          text-sm sm:text-base
+        "
       >
-        <FiArrowLeft className="text-lg" />
+        <FiArrowLeft className="text-base sm:text-lg" />
         <span>Back to Home</span>
       </motion.button>
     </Link>
