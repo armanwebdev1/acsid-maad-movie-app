@@ -1,3 +1,4 @@
+// app/movie/[id]/page.tsx
 import type { Metadata } from "next";
 import { fetchMovieDetails, fetchSimilarMovies } from "../../lib/tmdb";
 import BackButton from "../../components/movie/BackButton";
@@ -5,11 +6,8 @@ import BackdropImage from "../../components/movie/BackdropImage";
 import MovieDetails from "../../components/movie/MovieDetails";
 import SimilarMovies from "../../components/movie/SimilarMovies";
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { id: string };
-}): Promise<Metadata> {
+export async function generateMetadata(props: any): Promise<Metadata> {
+  const { params } = props as { params: { id: string } };
   const movie = await fetchMovieDetails(params.id);
 
   return {
@@ -25,18 +23,15 @@ export async function generateMetadata({
   };
 }
 
-export default async function MovieDetail({
-  params,
-}: {
-  params: { id: string };
-}) {
+export default async function MovieDetail(props: any) {
+  const { params } = props as { params: { id: string } };
   const movie = await fetchMovieDetails(params.id);
   const similar = await fetchSimilarMovies(params.id);
 
   return (
     <div className="bg-[#141414] min-h-screen text-white">
       <div className="relative max-w-4xl mx-auto rounded-lg sm:rounded-xl overflow-hidden shadow-2xl md:mt-8">
-        <div className="hidden md:flex absolute top-4 sm:top-6 left-4 sm:left-6 z-20">
+        <div className="absolute top-4 sm:top-6 left-4 sm:left-6 z-20">
           <BackButton />
         </div>
 
